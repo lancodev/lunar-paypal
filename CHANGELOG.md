@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## 0.9 - 2023-03-24
+
+- Store card details in transaction
+
 ## 0.8 - 2023-03-17
 
 - Add functionality to show payment errors on payment form
