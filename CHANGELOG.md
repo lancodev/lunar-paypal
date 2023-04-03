@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## 0.10 - 2023-04-03
+
+Handle paypal and credit card payment methods
+
 ## 0.9 - 2023-03-24
 
 - Store card details in transaction
