@@ -74,7 +74,15 @@ class Paypal
             return false;
         }
 
-        $paymentMethod = $response['payment_source']['card'];
+        $paymentType = key($response['payment_source']);
+        $cardType = 'paypal';
+        $lastFour = null;
+
+        if ($paymentType === 'card') {
+            $paymentMethod = $response['payment_source']['card'];
+            $cardType = Str::lower($paymentMethod['brand']);
+            $lastFour = $paymentMethod['last_digits'];
+        }
 
         $charge = $response['purchase_units'][0]['payments']['captures'][0];
 
@@ -85,8 +93,8 @@ class Paypal
             'success' => $charge['status'] === 'COMPLETED',
             'type' => 'capture',
             'driver' => 'paypal',
-            'card_type' => Str::lower($paymentMethod['brand']),
-            'last_four' => $paymentMethod['last_digits'],
+            'card_type' => $cardType,
+            'last_four' => $lastFour,
             'amount' => $charge['amount']['value'] * 100,
             'reference' => $charge['id'],
             'status' => $charge['status'],
