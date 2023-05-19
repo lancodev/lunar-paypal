@@ -113,6 +113,9 @@ class Paypal
 
     public function refund(Transaction $transaction, $amount = 0, $notes = null)
     {
+        if (empty($notes)) {
+            $notes = 'Your refund has been processed.';
+        }
         $randomId = uniqid('', true);
         try {
             $refund = $this->client->refundCapturedPayment($transaction->reference, $randomId, $amount / 100, $notes);
