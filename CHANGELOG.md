@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.11 - 2023-05-19
+
+Handle refunds without notes
+
 ## 0.10 - 2023-04-03
 
 Handle paypal and credit card payment methods
