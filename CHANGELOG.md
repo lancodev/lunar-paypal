@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## 0.13 - 2023-07-06
+
+Update Lunar dependency
+
 ## 0.12 - 2023-05-19
 
 Dependency updates
