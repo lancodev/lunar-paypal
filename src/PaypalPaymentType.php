@@ -71,38 +71,4 @@ class PaypalPaymentType extends AbstractPayment
             success: true
         );
     }
-
-    private function releaseSuccess()
-    {
-        DB::transaction(function () {
-            $this->order->update([
-                'status' => $this->config['released'] ?? 'paid',
-                'placed_at' => now(),
-            ]);
-
-            $transactions = [];
-
-            $type = 'capture';
-
-            if ($this->policy == 'manual') {
-                $type = 'intent';
-            }
-
-            $transactions[] = [
-                'success' => true,
-                'type' => 'charge',
-                'driver' => 'paypal',
-                'amount' => $this->order->total,
-                'reference' => 'paypal',
-                'status' => 'succeeded',
-                'notes' => null,
-                'card_type' => 'visa',
-                'last_four' => '4242',
-                'captured_at' => now(),
-            ];
-            $this->order->transactions()->createMany($transactions);
-        });
-
-        return new PaymentAuthorize(success: true);
-    }
 }
