@@ -2,6 +2,11 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## 0.14 - 2023-09-11
+
+- update OrderController to match Lunar's new `Cart`<->`Order` relationship
+- better handle card declines
+
 ## 0.13.1 - 2023-09-11
 
 code cleanup
