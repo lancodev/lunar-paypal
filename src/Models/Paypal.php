@@ -11,7 +11,7 @@ class Paypal
 {
     public PayPalClient $client;
 
-    public string|null $clientId;
+    public ?string $clientId;
 
     public function __construct()
     {

@@ -2,7 +2,6 @@
 
 namespace Lancodev\LunarPaypal;
 
-use Illuminate\Support\Facades\DB;
 use Lancodev\LunarPaypal\Models\Paypal;
 use Lunar\Base\DataTransferObjects\PaymentAuthorize;
 use Lunar\Base\DataTransferObjects\PaymentCapture;
