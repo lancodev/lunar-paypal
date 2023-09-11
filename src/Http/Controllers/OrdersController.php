@@ -7,7 +7,6 @@ use Lancodev\LunarPaypal\Models\Paypal;
 use Lunar\Models\Cart;
 use Lunar\Models\Order;
 use Lunar\Models\Transaction;
-use Spatie\Ray\Ray;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class OrdersController
