@@ -5,7 +5,9 @@ namespace Lancodev\LunarPaypal\Http\Controllers;
 use Illuminate\Http\Request;
 use Lancodev\LunarPaypal\Models\Paypal;
 use Lunar\Models\Cart;
+use Lunar\Models\Order;
 use Lunar\Models\Transaction;
+use Spatie\Ray\Ray;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class OrdersController
@@ -14,7 +16,7 @@ class OrdersController
     {
         $cart = Cart::find($request->cart_id)->calculate();
 
-        $order = $cart->order ?? $cart->createOrder();
+        $order = Order::where('cart_id', $cart->id)->first() ?? $cart->createOrder();
 
         if (! $order->customer()->exists() && $cart->user()->exists()) {
             $customer = $cart->user->customers()->first();
@@ -68,8 +70,6 @@ class OrdersController
 
         $paypal = new Paypal();
 
-        $capture = $paypal->capture($transaction);
-
-        return $capture;
+        return $paypal->capture($transaction);
     }
 }
