@@ -2,6 +2,7 @@
 
 namespace Lancodev\LunarPaypal\Models;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use Lunar\Models\Cart;
 use Lunar\Models\Transaction;
@@ -17,17 +18,24 @@ class Paypal
     {
         $this->client = new PayPalClient();
         $this->client->setApiCredentials(config('paypal'));
-        $this->client->getAccessToken();
+        $this->client->setAccessToken($this->getAccessToken());
 
         $mode = config('paypal.mode');
         $this->clientId = config("paypal.{$mode}.client_id");
     }
 
+    public function getAccessToken()
+    {
+        return Cache::remember('paypal.access_token', 60 * 60 * 4, function () {
+            return json_decode($this->client->getAccessToken(), true);
+        });
+    }
+
     public function getClientToken()
     {
-        $clientToken = $this->client->getClientToken();
-
-        return $clientToken['client_token'] ?? null;
+        return Cache::remember('paypal.client_token', 60 * 60 * 4, function () {
+            return $this->client->getClientToken()['client_token'] ?? null;
+        });
     }
 
     public function authorize(Cart $cart, $order = null)
