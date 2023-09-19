@@ -27,7 +27,14 @@ class Paypal
     public function getAccessToken()
     {
         return Cache::remember('paypal.access_token', 60 * 60 * 4, function () {
-            return json_decode($this->client->getAccessToken(), true);
+            $token = $this->client->getAccessToken();
+            if (is_array($token)) {
+                return [
+                    'access_token' => '',
+                    'token_type' => '',
+                ];
+            }
+            return json_decode($token, true);
         });
     }
 
