@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## 0.14.1 - 2023-09-19
+
+Fix broken package dependency
+
 ## 0.14 - 2023-09-11
 
 - update OrderController to match Lunar's new `Cart`<->`Order` relationship
