@@ -34,6 +34,7 @@ class Paypal
                     'token_type' => '',
                 ];
             }
+
             return json_decode($token, true);
         });
     }
