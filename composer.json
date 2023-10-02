@@ -20,7 +20,7 @@
         "illuminate/contracts": "^10.0",
         "lunarphp/lunar": "*",
         "spatie/laravel-package-tools": "^1.14.0",
-        "srmklive/paypal": "3.0.24"
+        "srmklive/paypal": "^3.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
