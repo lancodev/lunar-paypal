@@ -19,7 +19,7 @@ class Paypal
         $this->client = new PayPalClient();
         $this->client->setApiCredentials(config('paypal'));
 
-        if (array_keys($this->cacheAccessToken()['access_token'])) {
+        if (array_key_exists('access_token', $this->cacheAccessToken())) {
             $this->client->setAccessToken($this->cacheAccessToken());
         }
 
