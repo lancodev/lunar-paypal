@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.14.4 - 2023-10-02
+
+Fix access token caching
+
 ## v0.14.3 - 2023-10-02
 
 package updates
