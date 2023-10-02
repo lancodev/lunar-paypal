@@ -18,24 +18,16 @@ class Paypal
     {
         $this->client = new PayPalClient();
         $this->client->setApiCredentials(config('paypal'));
-        $this->client->setAccessToken($this->getAccessToken());
+        $this->client->setAccessToken($this->cacheAccessToken());
 
         $mode = config('paypal.mode');
         $this->clientId = config("paypal.{$mode}.client_id");
     }
 
-    public function getAccessToken()
+    public function cacheAccessToken()
     {
         return Cache::remember('paypal.access_token', 60 * 60 * 4, function () {
-            $token = $this->client->getAccessToken();
-            if (is_array($token)) {
-                return [
-                    'access_token' => '',
-                    'token_type' => '',
-                ];
-            }
-
-            return json_decode($token, true);
+            return $this->client->getAccessToken();
         });
     }
 
