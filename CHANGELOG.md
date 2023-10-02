@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.14.16 - 2023-10-02
+
+fix typo
+
 ## v0.14.5 - 2023-10-02
 
 only set access token when it exists
