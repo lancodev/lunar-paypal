@@ -18,7 +18,10 @@ class Paypal
     {
         $this->client = new PayPalClient();
         $this->client->setApiCredentials(config('paypal'));
-        $this->client->setAccessToken($this->cacheAccessToken());
+
+        if (array_keys($this->cacheAccessToken()['access_token'])) {
+            $this->client->setAccessToken($this->cacheAccessToken());
+        }
 
         $mode = config('paypal.mode');
         $this->clientId = config("paypal.{$mode}.client_id");
