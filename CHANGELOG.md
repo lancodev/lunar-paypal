@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.14.5 - 2023-10-02
+
+only set access token when it exists
+
 ## v0.14.4 - 2023-10-02
 
 Fix access token caching
