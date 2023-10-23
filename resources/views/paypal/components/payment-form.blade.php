@@ -18,7 +18,10 @@
             <div>
                 <div class="mt-6 grid grid-cols-4 gap-y-6 gap-x-4">
                     <div class="col-span-4">
-                        <label for="card-number">Card Number</label>
+                        <label for="card-number">
+                            Card Number
+                            <small class="text-xs text-red-500">*</small>
+                        </label>
                         <div class="card_field"
                              id="card-number"
                              style="max-height: 20px;">
@@ -26,13 +29,19 @@
                     </div>
 
                     <div class="col-span-3">
-                        <label for="expiration-date">Expiration Date</label>
+                        <label for="expiration-date">
+                            Expiration Date
+                            <small class="text-xs text-red-500">*</small>
+                        </label>
                         <div class="card_field"
                              id="expiration-date"></div>
                     </div>
 
                     <div>
-                        <label for="cvv">CVV</label>
+                        <label for="cvv">
+                            CVV
+                            <small class="text-xs text-red-500">*</small>
+                        </label>
                         <div class="card_field"
                              id="cvv"></div>
                     </div>
