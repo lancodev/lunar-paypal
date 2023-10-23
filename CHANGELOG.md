@@ -2,6 +2,11 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.15 - 2023-10-23
+
+- bump dependencies
+- include required indicators for credit card fields
+
 ## v0.14.16 - 2023-10-02
 
 fix typo
