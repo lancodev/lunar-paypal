@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "illuminate/contracts": "^10.0",
+        "php": "^8.2",
         "lunarphp/lunar": "*",
         "spatie/laravel-package-tools": "^1.14.0",
         "srmklive/paypal": "^3.0"
