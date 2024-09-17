@@ -2,6 +2,10 @@
 
 All notable changes to `lunar-paypal` will be documented in this file.
 
+## v0.16 - 2024-09-17
+
+- remove Illuminate/Contracts dependency
+
 ## v0.15 - 2023-10-23
 
 - bump dependencies
