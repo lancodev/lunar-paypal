@@ -15,7 +15,7 @@ class PaypalPaymentType extends AbstractPayment
 
     public function __construct()
     {
-        $this->paypal = new Paypal();
+        $this->paypal = new Paypal;
     }
 
     /**

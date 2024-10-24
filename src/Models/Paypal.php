@@ -16,7 +16,7 @@ class Paypal
 
     public function __construct()
     {
-        $this->client = new PayPalClient();
+        $this->client = new PayPalClient;
         $this->client->setApiCredentials(config('paypal'));
 
         if (array_key_exists('access_token', $this->cacheAccessToken())) {

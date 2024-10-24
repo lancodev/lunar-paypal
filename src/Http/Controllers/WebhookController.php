@@ -10,7 +10,7 @@ class WebhookController
 {
     public function handle(Request $request)
     {
-        $paypal = new PayPal();
+        $paypal = new PayPal;
         $paypal->setApiCredentials(config('paypal'));
         $paypal->getAccessToken();
 

@@ -29,7 +29,7 @@ class OrdersController
             $order->save();
         }
 
-        $paypal = new PayPalClient();
+        $paypal = new PayPalClient;
         $paypal->getAccessToken();
         $paypal->getClientToken();
 
@@ -67,7 +67,7 @@ class OrdersController
     {
         $transaction = Transaction::where('reference', $orderId)->first();
 
-        $paypal = new Paypal();
+        $paypal = new Paypal;
 
         return $paypal->capture($transaction);
     }

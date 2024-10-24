@@ -16,7 +16,7 @@ class LunarPaypalServiceProvider extends PackageServiceProvider
     {
         parent::boot();
 
-        $payPal = new Paypal();
+        $payPal = new Paypal;
         $clientId = $payPal->clientId;
         $clientToken = $payPal->getClientToken();
 
